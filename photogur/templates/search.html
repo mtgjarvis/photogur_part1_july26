@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+{% block content %}
+    <h2> Search results: {{ pictures.count }} </h2>
+
+    <div>
+        <ul>
+            {% for picture in pictures %}
+        
+                <a href="{% url 'picture_search' %}"></a>
+
+                <p>{{ picture.artist }}</p>
+                <p>By {{ picture.title }}</p>
+                
+                <img src="{{ picture.url }}" alt="{{ picture.title }}">
+    
+            {% endfor %}
+        </ul>
+    </div>
+
+
+{% endblock %}
+{% endblock %}

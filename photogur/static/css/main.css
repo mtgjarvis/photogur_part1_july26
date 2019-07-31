@@ -25,6 +25,15 @@ footer {
     padding: 20px 5%;
 }
 
+.form {
+    display: block;
+    padding: 20px;
+}
+
+h2 {
+    color: lightgrey;
+}
+
 h1 {
     display: block;
     margin: 0px;

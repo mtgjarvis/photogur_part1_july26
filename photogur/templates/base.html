@@ -12,6 +12,13 @@
     <header>
         <h1>Photogur</h1>
     </header>
+        <form class=form action="{% url 'picture_search' %}" method="GET">
+            <label for="picture_search">
+                <span>Search:</span>
+                <input type="search" id="picture_search" name="query" />
+            </label>
+            <input type="Submit" value="Search">
+        </form>
     {% block content %}
     {% endblock %}
     <footer> Copywrite Mark Jarvis </footer>
