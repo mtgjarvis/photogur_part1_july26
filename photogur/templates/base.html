@@ -15,7 +15,7 @@
         <form class=form action="{% url 'picture_search' %}" method="GET">
             <label for="picture_search">
                 <span>Search:</span>
-                <input type="search" id="picture_search" name="query" />
+                <input type="search" id="picture_search" name="query" value="{{ query }}"/>
             </label>
             <input type="Submit" value="Search">
         </form>

@@ -5,7 +5,7 @@
         {% for picture in pictures %}
             <a class ="image_block" href="{% url 'picture_details' id=picture.pk %}">
                 <li>
-                    <img class="image" src="{{ picture.url }}">
+                    <img class="image" src="{{ picture.url }}" alt="">
                     <p class ="info">{{ picture.title }} By {{ picture.artist  }} </p>
                     {% comment %} <p class ="info"></p> {% endcomment %}
                     {% comment %} <p>{{ picture.comments.count  }}</p> {% endcomment %}

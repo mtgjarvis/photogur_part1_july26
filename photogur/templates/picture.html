@@ -5,5 +5,22 @@
 <h3>By {{picture.artist}}</h3>
 
 <img src="{{picture.url}}" alt="{{picture.title}}" />
+<ul>
+    {% for comment in picture.comments.all %}
+    <li>
+        {{ comment.name }}
+        {{ comment.message }}
+        {{ comment.created_at }}
+    </li>
+    {% endfor %}
+</ul>
+<form action="{% url 'create_comment' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="picture" value="{{ picture.pk }}">
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="message" placeholder="Comment"><br>
+    <input type="submit" value="Submit">
+
+</form>
 
 {% endblock %}
