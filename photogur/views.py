@@ -34,7 +34,5 @@ def create_comment(request):
     message = request.POST['message']
     new_comment = Comment(picture=picture, name=name, message=message)
     new_comment.save()
-    context = {'picture': picture}
-    render(request, 'pictures.html', context)
-    return HttpResponseRedirect('/pictures')
+    return HttpResponseRedirect(f'/pictures/{picture_id}')
     
