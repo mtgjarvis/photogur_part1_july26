@@ -27,6 +27,9 @@
             </label>
             <input type="Submit" value="Search">
         </form>
+        <form action="{% url 'add_picture' %}" method="GET">
+                <input type="submit" value="Add Picture" >
+        </form>
     {% block content %}
     {% endblock %}
     <footer> Copywrite Mark Jarvis </footer>

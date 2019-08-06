@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render 
-from photogur.models import Picture, Comment
+from photogur.models import Picture, Comment, PictureForm
 from photogur.forms import LoginForm, Form
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -55,6 +55,16 @@ def pictures(request):
     context = {'pictures': Picture.objects.all()}
     response = render(request, 'pictures.html', context)
     return HttpResponse(response)
+
+
+def add_picture(request):
+    if request.method == 'POST':
+        new_picture = Picture(title=request.POST['title'], artist=request.POST['artist'], url=request.POST['url'], user=request.user)
+        new_picture.save()
+        context = {'picture': new_picture}
+        return render(request, 'picture.html', context)
+    else:
+        return render(request, 'add_picture.html')
 
 
 def picture_show(request, id):

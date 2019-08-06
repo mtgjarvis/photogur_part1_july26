@@ -13,9 +13,14 @@ class Picture(models.Model):
         return self.title
 
 
+class PictureForm(ModelForm):
+    class Meta:
+        model = Picture
+        fields = ['title', 'artist', 'url', 'user']
+
+
 class Comment(models.Model):
     name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     message = models.TextField(null=True)
     picture = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name='comments')
-
