@@ -1,10 +1,18 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render 
 from photogur.models import Picture, Comment
+from photogur.forms import LoginForm, Form
 
 
 def root(request):
     return HttpResponseRedirect('home')
+
+
+def login_view(request):
+    form = LoginForm()
+    context = {'form': form}
+    http_response = render(request, 'login.html', context)
+    return HttpResponse(http_response)
 
 
 def pictures(request):
